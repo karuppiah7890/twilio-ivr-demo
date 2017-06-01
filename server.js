@@ -6,6 +6,7 @@ const helper = require('./helper');
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended: false}));
 
 app.post('/ivr/welcome', (req, res) => {
   console.log(req.body);
