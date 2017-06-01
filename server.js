@@ -9,15 +9,16 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
 
 app.post('/ivr/welcome', (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   res.send(helper.welcome());
 })
 
 app.post('/ivr/register', (req, res) => {
   const digit = req.body.Digits;
-  console.log("register",req.body);
-  console.log(digit);
-  res.send(helper.register(digit));
+  const fromNumber = req.body.From;
+  //console.log("register",req.body);
+  //console.log(digit);
+  res.send(helper.register(digit, fromNumber));
 })
 
 app.listen(PORT, () => {

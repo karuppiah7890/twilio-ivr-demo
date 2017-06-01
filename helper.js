@@ -28,15 +28,24 @@ module.exports = {
 
     return twiml.toString();
   },
-  register: function(digit) {
+  register: function(digit, number) {
 
     const twiml = new VoiceResponse();
 
-    twiml.say(`Your number has been added to our DNC list, have a nice day`,
-    {
-      voice: 'alice',
-      language: 'en-GB'
-    });
+    if(digit === '1') {
+      twiml.say(`Your number ${number} has been added to our DNC list, have a nice day`,
+      {
+        voice: 'alice',
+        language: 'en-GB'
+      });
+    } else {
+      twiml.say(`You pressed some other key. Please call again and press the righ key. Have a nice day!`,
+      {
+        voice: 'alice',
+        language: 'en-GB'
+      });
+    }
+
 
     twiml.hangup();
 
