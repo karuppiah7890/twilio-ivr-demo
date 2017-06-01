@@ -1,0 +1,21 @@
+{
+  "name": "twilio-ivr",
+  "version": "1.0.0",
+  "description": "An ivr application to handle incoming calls to twilio number",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "twilio",
+    "voice",
+    "ivr"
+  ],
+  "author": "Karuppiah N <karuppiah7890@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "twilio": "^3.3.0"
+  }
+}
