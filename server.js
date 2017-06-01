@@ -8,14 +8,15 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyparser.json());
 
 app.post('/ivr/welcome', (req, res) => {
-  console.log(req.body.From);
+  console.log(req.body);
   res.send(helper.welcome());
 })
 
-app.post('/ivr/bye', (req, res) => {
+app.post('/ivr/register', (req, res) => {
   const digit = req.body.Digits;
+  console.log("register",req.body);
   console.log(digit);
-  res.send(helper.bye(digit));
+  res.send(helper.register(digit));
 })
 
 app.listen(PORT, () => {

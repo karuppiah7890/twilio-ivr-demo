@@ -6,26 +6,37 @@ module.exports = {
     const music = 'https://narrow-watch-3844.twil.io/assets/Cool-sms-tone.mp3';
 
     const gather = twiml.gather({
-      action: '/ivr/bye',
+      action: '/ivr/register',
       numDigits: '1',
       method: 'POST'
     });
 
-    gather.play(music);
+    gather.say(`Thank you for calling ABC corp,
+    to speak with us stay on the line or press 1 to be added to our DNC list`,
+    {
+      voice: 'alice',
+      language: 'en-GB'
+    });
+
+    twiml.say(`We are connecting you to our customer support.`,
+    {
+      voice: 'alice',
+      language: 'en-GB'
+    });
+
+    twiml.dial(process.env.MY_MOBILE_NUMBER);
 
     return twiml.toString();
   },
-  bye: function(digit) {
+  register: function(digit) {
+
     const twiml = new VoiceResponse();
 
-    twiml.say(`I am going to simply wait now`);
-
-    twiml.pause({
-      length: 5
-    })
-
-    twiml.say(`I waited for 5 seconds. Thanks for calling Karuppiah!`,
-    {voice: 'alice', language: 'en-GB'});
+    twiml.say(`Your number has been added to our DNC list, have a nice day`,
+    {
+      voice: 'alice',
+      language: 'en-GB'
+    });
 
     twiml.hangup();
 
