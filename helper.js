@@ -11,12 +11,14 @@ module.exports = {
       method: 'POST'
     });
 
-    gather.play({loop: 1},music);
+    gather.play(music);
 
     return twiml.toString();
   },
   bye: function(digit) {
     const twiml = new VoiceResponse();
+
+    twiml.say(`I am going to simply wait now`);
 
     twiml.pause({
       length: 5
