@@ -24,7 +24,8 @@ module.exports = {
       length: 5
     })
 
-    twiml.say(`I waited for 5 seconds. Thanks for calling Karuppiah!`);
+    twiml.say(`I waited for 5 seconds. Thanks for calling Karuppiah!`,
+    {voice: 'alice', language: 'en-GB'});
 
     twiml.hangup();
 
